@@ -87,3 +87,7 @@ Unistalling this repo will leave your filesystem clean. It requires root.
 1. cd repo
 1. run `sudo ./uninstall.sh`
 1. sudo pkill -9 X #restart X and GDM3
+
+## More
+
+Now that you are here you might be interested also in this [my other repo](https://github.com/damko/i3-config)
