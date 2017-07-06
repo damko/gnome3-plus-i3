@@ -23,7 +23,7 @@ Installing this files will just copy a few files in your filesystem therefore it
 1. cd repo
 1. run `sudo ./install.sh`
 1. update your .config/i3/config file as described below
-1. restart gdm3
+1. sudo pkill -9 X #restart X and GDM3
 
 By clicking on the gdm3 "gear icon" you should see i3-gnome3. Select it and log in.
 
@@ -86,4 +86,4 @@ Unistalling this repo will leave your filesystem clean. It requires root.
 
 1. cd repo
 1. run `sudo ./uninstall.sh`
-1. restart gdm3
+1. sudo pkill -9 X #restart X and GDM3
