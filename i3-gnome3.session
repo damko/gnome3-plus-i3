@@ -1,5 +1,0 @@
-# -*- mode: conf -*-
-
-[GNOME Session]
-Name=i3-gnome3
-RequiredComponents=i3-gnome3;
