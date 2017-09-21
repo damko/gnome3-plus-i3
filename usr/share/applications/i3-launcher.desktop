@@ -1,0 +1,18 @@
+# This is a component launched by gnome-session 
+# See "RequiredComponents" in /usr/share/gnome-session/sessions/gnome3-plus-i3.session
+#
+# 4th file in the loading sequence after GDM
+#
+# This component executes the /usr/bin/i3-launcher script
+
+[Desktop Entry]
+Type=Application
+Name=i3-launcher
+Name[en_US]=i3-launcher
+Comment=improved dynamic tiling window manager
+NoDisplay=true
+Exec=i3-launcher
+X-GNOME-WMName=i3-launcher
+X-GNOME-Autostart-Phase=WindowManager
+X-GNOME-Provides=i3-launcher
+X-GNOME-Autostart-Notify=false

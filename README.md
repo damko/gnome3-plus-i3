@@ -2,64 +2,61 @@
 
 ## About
 
-Installing this repo will load i3 with Gnome3 session.
-
-Repository's files come from [Alice's repository](https://github.com/aliceriot/i3-gnome). 
-I tested and adjusted them a little for a fresh Debian Testing installation.
-
-Basically right after installing your fresh Debian, install these packages:
-
-	apt-get install i3 i3-wm i3blocks i3lock i3status
-
-Then follow the instructions for installing this repository and you are good to go with your i3 wm
+By installing this repo your system will be able to load Gnome3 session and, then, i3 window manager inside it.
 
 Repository creation date: @2017-07-05
+Repository last-update: @2017-09-021
 
-## Install
+This configuration is running on Debian Testing. I use it daily.
 
-Installing this files will just copy a few files in your filesystem therefore it's idempotent. It requires root.
+
+## Install this repo
+
+Be sure to have these packages installed
+
+	apt-get install i3 i3-wm i3blocks i3lock i3status suckless-tools gnome-flashback gnome-flashback-common
+
+Then install this repo: this will just copy a few files in your filesystem and, therefore, it's an idempotent installation. It requires root.
 
 1. clone this repo
 1. cd repo
 1. run `sudo ./install.sh`
-1. update your .config/i3/config file as described below
-1. sudo pkill -9 X #restart X and GDM3
-
-By clicking on the gdm3 "gear icon" you should see i3-gnome3. Select it and log in.
-
-## i3 config file updates
-
-Before reloading gdm3 you should parse, check and update your `~/.config/i3/config file accordingly with the following lines:
-
-	# This exits i3 (logs you out of your X session)
-	bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'gnome-session-quit --force --logout'"
-
-	# This loads and lock the screensaver
-	bindsym $mod+Shift+l exec "gnome-screensaver-command -l"
 
 
-	# Takes a screenshot of the whole screen
-	bindsym Print exec gnome-screenshot
+## Configure your system
 
-	# Takes a screenshot of the focused window
-	bindsym Shift+Print exec gnome-screenshot -w
+You now need to edit your `~/.config/i3/config` file and look for "exits i3": arrange the lines as follow:
 
-	# Loads gnome stuff at i3 startup
-	exec_always gnome-settings-daemon &
-	exec_always gnome-screensaver &
-	exec_always --no-startup-id tracker daemon -t all
-	exec_always --no-startup-id tracker daemon -s
+	# exits i3 (logs you out of your X session)
+	# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+	bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'gnome-session-quit --force --logout'"
+
+
+## Load Gnome3 with i3
+
+You are good to go. Restart X
+
+	sudo pkill -9 X
+
+When the GDM3 screen appears click on the "gear icon" and you should see **"gnome3 plus i3"**. Select it and log in.
 
 ## Test Gnome session
 
 To test if the gnome-session has been loaded correctly you can run these tests:
 
 	echo $GDMSESSION
-	i3-gnome3
+
+> gnome3-plus-i3
+
+	echo $DESKTOP_AUTOSTART_ID
+
+> 108e796b5eb23a2777150601919829285800000156950002
 
 and 
 	ps aux | grep gnome-session
-	/usr/lib/gnome-session/gnome-session-binary --session=i3
+
+... you should see a few instances
+
 
 Additionally you can run some other tests if you install some additional packages:
 
@@ -86,7 +83,7 @@ Unistalling this repo will leave your filesystem clean. It requires root.
 
 1. cd repo
 1. run `sudo ./uninstall.sh`
-1. sudo pkill -9 X #restart X and GDM3
+1. sudo pkill -9 X
 
 ## More
 

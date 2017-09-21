@@ -1,0 +1,13 @@
+# This is called by /usr/bin/gnome3-launcher when a new gnome-session is created
+#
+# 3rd file in the loading sequence after GDM
+#
+# gnome-flashback-init, gnome-flashback and i3-launcher are .desktop files that can be found in
+# /usr/share/applications/
+# gnome-session loads each of them sequentially
+#
+
+[GNOME Session]
+Name=Gnome3 plus i3 Session
+RequiredComponents=gnome-flashback-init;gnome-flashback;i3-launcher;
+

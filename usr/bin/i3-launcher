@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# This script is run by /usr/share/applications/i3-launcher.desktop (the last gnome component)
+#
+# 5th and last file in the loading sequence after GDM
+#
+# It prepares and loads the i3 window manager
+
+# DESKTOP_AUTOSTART_ID is a random ID generated when gnome-session is loaded
+logger -t "i3-launcher" "gnome-session has been launched with DESKTOP_AUTOSTART_ID: $DESKTOP_AUTOSTART_ID"
+
+# Runs a script which deals with the i3 config file (this is optional and can be commented)
+pre_i3_script="${HOME}/.config/i3/i3_startup.sh"
+if [ -f $pre_i3_script ]; then
+    logger -t "i3-launcher" "launching $pre_i3_script ..."
+    ${pre_i3_script}
+fi
+
+# This registers the given DESKTOP_AUTOSTART_ID with gnome-session so that it does not kill the whole session thinking that the process is dead
+dbus-send --session --print-reply=literal --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "string:$DESKTOP_AUTOSTART_ID"
+
+# Finally it loads i3
+exec i3 
+
+####################################################################
+# Note1: 
+# whatever will be written after this line will not be executed 
+# because `i3` is still holding the script process
+#
+# Note2:
+# If you need to debug i3 (release version) comment the previous line 
+# and uncomment the following. To check the debug log: i3-dump-log
+# i3 -V -d all > ~/.config/i3/i3log
+

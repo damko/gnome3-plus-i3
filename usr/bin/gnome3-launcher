@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# This script is run as soon as the user selects "Gnome3 plus i3" session in GDM and logs in
+# Technically speaking this script is launched by /usr/share/xsessions/gnome3-plus-i3.desktop 
+#
+# 2nd file in the loading sequence after GDM
+#
+# It prepares and loads the gnome environment
+
+logger -t "gnome3-launcher" "gnome3-launcher has been launched"
+
+# Menu tools use this value to decide which applications are approriate for the current session.
+export XDG_CURRENT_DESKTOP="GNOME-Flashback:GNOME"
+
+# Fix the missing cursor problem
+dconf write /org/gnome/settings-daemon/plugins/cursor/active false
+
+# Disable Gnome Shell's App Menu, so that lost menu items are shown again
+gsettings set org.gnome.settings-daemon.plugins.xsettings overrides '@a{sv} {"Gtk/ShellShowsAppMenu": <int32 0>}'
+
+# Nautilus should not handle the desktop
+gsettings set org.gnome.desktop.background show-desktop-icons false
+
+# Redirects the X11 beep to PulseAudio and plays the .oga file instead of the system bell
+# The .oga file is definitely more pleasant than the system bell
+pactl upload-sample \
+    /usr/share/sounds/freedesktop/stereo/dialog-information.oga \
+    x11-bell
+pactl load-module \
+    module-x11-bell \
+    display=$DISPLAY \
+    sample=x11-bell
+
+logger -t "gnome3-launcher" "gnome session is about to start ..."
+
+# Runs the gnome-session file located in /usr/share/xsessions named "gnome3-plus-i3".session
+gnome-session --session=gnome3-plus-i3 --disable-acceleration-check

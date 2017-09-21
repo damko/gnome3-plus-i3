@@ -1,0 +1,18 @@
+# This is read by GDM (or any other session manager) when it's started
+# $Name will then be visible in the list of the available sessions
+# $Name can be localized by adding a line with the following the syntax: 
+# Name[<locale_short>]="localized text here"
+#
+# 1st file in the loading sequence after GDM
+
+[Desktop Entry]
+Name=Gnome3 plus i3
+Name[en_US]=Gnome3 plus i3
+Comment=Improved dynamic tiling window manager, registers with gnome session manager.
+NoDisplay=true
+Exec=gnome3-launcher
+TryExec=gnome3-launcher
+Type=Application
+X-LightDM-DesktopName=gnome3-plus-i3
+DesktopNames=gnome3-plus-i3
+Keywords=tiling;wm;windowmanager;

@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# This script uninstalls .desktop and .session files used to provide gnome3-session with i3
-# by @damko
-
-rm /usr/share/xsessions/i3-gnome3.desktop
-rm /usr/bin/i3-gnome3
-rm /usr/share/gnome-session/sessions/i3.session
-rm /usr/share/applications/i3-gnome3.desktop
-
+rm usr/bin/gnome3-launcher /usr/bin/
+rm usr/bin/i3-launcher /usr/bin/
+rm usr/share/applications/i3-launcher.desktop /usr/share/applications/
+rm usr/share/gnome-session/sessions/gnome3-plus-i3.session /usr/share/gnome-session/sessions/
+rm usr/share/xsessions/gnome3-plus-i3.desktop /usr/share/xsessions/

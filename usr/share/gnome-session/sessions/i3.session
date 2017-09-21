@@ -1,7 +1,0 @@
-# -*- mode: conf -*-
-
-[GNOME Session]
-Name=i3-gnome3-session
-#There are certain apps that you want to ensure that users don't accidentally remove from their session
-#RequiredComponents=gnome-settings-daemon;gnome-panel;i3;
-RequiredComponents=gnome-settings-daemon;i3;
