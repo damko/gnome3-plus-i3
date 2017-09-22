@@ -1,4 +1,4 @@
-# i3-gnome3
+# Gnome3 plus i3
 
 ## About
 
