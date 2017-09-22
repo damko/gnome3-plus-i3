@@ -2,7 +2,7 @@
 
 ## About
 
-By installing this repo your system will be able to load Gnome3 session and, then, i3 window manager inside it.
+By installing this repo your system will be able to load Gnome3 session and, then, the [i3 window manager](https://i3wm.org/) inside it.
 
 Repository creation date: @2017-07-05
 Repository last-update: @2017-09-021
