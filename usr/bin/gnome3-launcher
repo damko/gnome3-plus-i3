@@ -22,9 +22,8 @@ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides '@a{sv} {"Gt
 gsettings set org.gnome.desktop.background show-desktop-icons false
 
 # Redirects the X11 beep to PulseAudio and plays the .oga file instead of the system bell
-# The .oga file is definitely more pleasant than the system bell
 pactl upload-sample \
-    /usr/share/sounds/freedesktop/stereo/dialog-information.oga \
+    /usr/share/sounds/freedesktop/stereo/window-attention.oga \
     x11-bell
 pactl load-module \
     module-x11-bell \
