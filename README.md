@@ -11,7 +11,7 @@ This configuration is running on Debian Testing. I use it daily.
 
 This is a screenshot of my "L shaped monitor configuration" 
 
-[Imgur](https://i.imgur.com/4sAOjwj.png)
+![Imgur](https://i.imgur.com/4sAOjwj.png)
 
 ## Install this repo
 
