@@ -9,8 +9,11 @@
 
 logger -t "gnome3-launcher" "gnome3-launcher has been launched"
 
-# Menu tools use this value to decide which applications are approriate for the current session.
-export XDG_CURRENT_DESKTOP="GNOME-Flashback:GNOME"
+# Menu tools uses this value to decide which applications are approriate for the current session.
+# export XDG_CURRENT_DESKTOP="GNOME-Flashback:GNOME"
+# export XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
+# XDG_SESSION_TYPE=exec dbus-run-session gnome-session
+# export XDG_SESSION_TYPE=dbus-run-session gnome-session
 
 # Fix the missing cursor problem
 dconf write /org/gnome/settings-daemon/plugins/cursor/active false
@@ -22,13 +25,13 @@ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides '@a{sv} {"Gt
 gsettings set org.gnome.desktop.background show-desktop-icons false
 
 # Redirects the X11 beep to PulseAudio and plays the .oga file instead of the system bell
-pactl upload-sample \
-    /usr/share/sounds/freedesktop/stereo/window-attention.oga \
-    x11-bell
-pactl load-module \
-    module-x11-bell \
-    display=$DISPLAY \
-    sample=x11-bell
+# pactl upload-sample \
+#     /usr/share/sounds/freedesktop/stereo/window-attention.oga \
+#     x11-bell
+# pactl load-module \
+#     module-x11-bell \
+#     display=$DISPLAY \
+#     sample=x11-bell
 
 logger -t "gnome3-launcher" "gnome session is about to start ..."
 

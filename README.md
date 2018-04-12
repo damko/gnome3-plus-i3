@@ -80,6 +80,20 @@ or
 
 In this last case you should see a notification message (a bubble on the top right of your screen) showing "this is a bubble message)
 
+## Troubleshooting
+
+If the gnome session is not starting and, therefore, you are not able to login in your gnome-i3 environment, check you `/var/log/syslog`
+
+If you see something like
+
+> gnome-session-binary Unable to find required component 'org.gnome.SettingsDaemon.xxxxx'
+
+most likely you are missing some gnome package. Be sure to have the nautilus package installed.
+
+In my debian testing, every once in a while, after a "dist-upgrade" my gnome-i3 doesn't work anymore but so far it has always been due to some missing package.
+I'm leaving my "gnome-something" packages list in the `gnome_packages_list.txt` file
+
+
 ## Uninstall
 
 Unistalling this repo will leave your filesystem clean. It requires root.

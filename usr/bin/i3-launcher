@@ -20,7 +20,7 @@ fi
 dbus-send --session --print-reply=literal --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "string:$DESKTOP_AUTOSTART_ID"
 
 # Finally it loads i3
-exec i3 
+i3 
 
 ####################################################################
 # Note1: 
@@ -31,4 +31,3 @@ exec i3
 # If you need to debug i3 (release version) comment the previous line 
 # and uncomment the following. To check the debug log: i3-dump-log
 # i3 -V -d all > ~/.config/i3/i3log
-
