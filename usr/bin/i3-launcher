@@ -17,7 +17,7 @@ if [ -f $pre_i3_script ]; then
 fi
 
 # This registers the given DESKTOP_AUTOSTART_ID with gnome-session so that it does not kill the whole session thinking that the process is dead
-dbus-send --session --print-reply=literal --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "string:$DESKTOP_AUTOSTART_ID"
+dbus-send --session --print-reply=literal --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "gnome3-plus-i3" "string:$DESKTOP_AUTOSTART_ID"
 
 # Finally it loads i3
 i3 
