@@ -1,5 +1,11 @@
 # Gnome3 plus i3
 
+## EDIT 2023-09-05
+
+I'm archiving this projects as it's probably too old to be updated or useful to anyone. If you still need gnome and i3, please, look for more recent projects than this one.
+
+Note: I recently tried [Sway](https://swaywm.org/) and it works surprisingly well. Unless you need X for some specific needs I suggest to use Sway without X and without login manager.
+
 ## About
 
 By installing this repo your system will be able to load Gnome3 session through [GnomeFallback](https://wiki.gnome.org/Projects/GnomeFlashback) and then the [i3 window manager](https://i3wm.org/).
